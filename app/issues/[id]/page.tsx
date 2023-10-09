@@ -18,7 +18,7 @@ export default async function IssueDetailPage({ params }: Props) {
   if (!issue) notFound();
 
   return (
-    <Grid columns="1" gap="1">
+    <Grid columns="1" gap="3">
       <Heading>{issue.title}</Heading>
       <Flex gap="2">
         <IssueStatusBadge status={issue.status} />
