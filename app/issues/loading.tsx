@@ -4,8 +4,10 @@ import "react-loading-skeleton/dist/skeleton.css";
 import IssueActions from "./IssueActions";
 
 export default function LoadingIssuesPage() {
+  const issues = [1, 2, 3, 4, 5];
+
   return (
-    <>
+    <div>
       <IssueActions />
       <Table.Root variant="surface">
         <Table.Header>
@@ -20,7 +22,7 @@ export default function LoadingIssuesPage() {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {[...Array(5)].map((issue) => (
+          {issues.map((issue) => (
             <Table.Row key={issue}>
               <Table.Cell>
                 <Skeleton />
@@ -38,6 +40,6 @@ export default function LoadingIssuesPage() {
           ))}
         </Table.Body>
       </Table.Root>
-    </>
+    </div>
   );
 }
