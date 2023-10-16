@@ -14,6 +14,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillBug } from "react-icons/ai";
 import { Skeleton } from "@/app/components";
+import { getInitials } from "@/getInitials";
 
 export default function NavBar() {
   return (
@@ -52,10 +53,7 @@ function AuthStatus() {
         <DropdownMenu.Trigger className="hover:cursor-pointer">
           <Avatar
             src={session!.user!.image!}
-            fallback={
-              `https://ui-avatars.com/api/?name=` +
-              session!.user!.name!.replace(" ", "+")
-            }
+            fallback={getInitials(session!.user!.name!)}
             size="2"
             radius="full"
           />
