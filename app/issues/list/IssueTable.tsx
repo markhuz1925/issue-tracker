@@ -7,6 +7,7 @@ import NextLink from "next/link";
 export interface IssueQuery {
   status: Status;
   orderBy: keyof Issue;
+  sortOrder: "asc" | "desc";
   page: string;
 }
 
@@ -30,6 +31,12 @@ export default function IssueTable({ searchParams, issues }: Props) {
                   query: {
                     ...searchParams,
                     orderBy: column.value,
+                    sortOrder:
+                      column.value === searchParams.orderBy
+                        ? searchParams.sortOrder === "asc"
+                          ? "desc"
+                          : "asc"
+                        : "asc",
                   },
                 }}
               >
